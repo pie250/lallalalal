@@ -5,7 +5,7 @@ function Register() {
   const [data, setData] = useState({});
 
   const submit = async () => {
-    await axios.post("http://localhost:5000/api/register", data);
+    await axios.post(" https://lallalalal.onrender.com/api/register", data);
     alert("Registered");
   };
 
