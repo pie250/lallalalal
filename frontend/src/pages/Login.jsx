@@ -1,11 +1,14 @@
 import { useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 function Login() {
   const [data, setData] = useState({
     email: "",
     password: ""
   });
+
+  const navigate = useNavigate(); // ✅ inside component
 
   const login = async () => {
     try {
@@ -15,11 +18,12 @@ function Login() {
       );
 
       localStorage.setItem("token", res.data.token);
+
       alert("Login Successful");
 
-      window.location.href = "/dashboard";
+      navigate("/dashboard"); // ✅ correct navigation
     } catch (err) {
-      console.log("ERROR:", err.response); // 🔥 DEBUG
+      console.log(err.response);
       alert(err.response?.data?.msg || "Login Failed");
     }
   };
@@ -30,6 +34,7 @@ function Login() {
 
       <input
         placeholder="Email"
+        value={data.email}
         onChange={(e) =>
           setData({ ...data, email: e.target.value })
         }
@@ -38,6 +43,7 @@ function Login() {
       <input
         type="password"
         placeholder="Password"
+        value={data.password}
         onChange={(e) =>
           setData({ ...data, password: e.target.value })
         }
