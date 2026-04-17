@@ -5,7 +5,7 @@ function Login() {
   const [data, setData] = useState({});
 
   const login = async () => {
-    const res = await axios.post(" https://lallalalal.onrender.com/api/login", data);
+    const res = await axios.post("https://lallalalal.onrender.com/api/login", data);
 
     localStorage.setItem("token", res.data.token);
     window.location.href = "/dashboard";

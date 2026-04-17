@@ -9,7 +9,7 @@ function Dashboard() {
 
   const updatePassword = async () => {
     await axios.put(
-      " https://lallalalal.onrender.com/api/update-password",
+      "https://lallalalal.onrender.com/api/update-password",
       password,
       { headers: { Authorization: token } }
     );
@@ -18,7 +18,7 @@ function Dashboard() {
 
   const updateCourse = async () => {
     await axios.put(
-      " https://lallalalal.onrender.com/api/update-course",
+      "https://lallalalal.onrender.com/api/update-course",
       { course },
       { headers: { Authorization: token } }
     );
